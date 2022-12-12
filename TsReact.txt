@@ -1,2 +1,158 @@
 05-Dec-2022
 
+Typescript is only active during development
+
+compiles > regular JS > Browser
+
+axios for requests 
+
+
+
+interface are used to define structure of an object, can ignore some properties
+
+interface Todo {
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+
+then to label something a TODO you put as after it 
+
+const todo = response.data as Todo;
+
+Two Typescript
+Primitive ... number boolean void undefined string symbol null
+
+Object type. Functions, arrays, classes ,objects
+
+
+type annotations - we tell them what type it is
+type inference - typescript assumes in certain situations 
+
+
+
+annotations ----
+
+let speed: string = 'fast';
+let hasName: boolean = false;
+
+let apples: string[] = ['macintosh', 'fuji', 'granny smith'];
+let numbers: number[] = [1,2,3]
+
+
+For strings you can specify what is in the string as well, like so :string[]
+
+object literal--
+
+to state objects types do so: 
+
+
+let point:{ x:number, y:number} = {
+  x: 10,
+  y: 20
+}
+
+//function
+
+
+left side is annotation of the function and what is return (void returns nothing) after words is the
+function implementation [( i:number ) ]
+
+const logNumber:(i: number) => void = ( i:number ) => {
+  console.log(i)
+}
+
+inference if not declaring and defining on same line will just assume any
+
+
+rely on inference most of the time, 3 times annotations are expressly a good idea
+
+
+functions returns any and we want to clarify
+when we declare and initilize later on
+variable that has a type that cant be inferred i.e. custom object or class
+
+
+
+
+
+things to do over break...
+
+Cottage booking site improvement, launching.....
+portfolio update.....
+
+can also have multiple choice of content
+
+let numberAboveZer: boolean | number = false;
+
+can then change later without error
+  numberAboveZer = 5;
+
+  360-----
+
+  08-Dec-22
+
+
+12-Dec-22
+
+  const add = (a:number,b:number): number => {
+  return a + b;
+}
+
+
+void type on function can be return as null or undefined
+
+es2015 destructure 
+
+before destructure
+const logWeather = (forecast: { date: Date; weather: string }) => {
+  console.log(forecast.date);
+  console.log(forecast.weather);
+};
+
+after 
+const logWeather = ({ date, weather }: { date: Date; weather: string }) => {
+  console.log(date);
+  console.log(weather);
+};
+
+console.log(logWeather(forecast));
+
+//object that has a function 
+
+const profile = {
+  name: 'alex',
+  obj: {
+    lat: 0,
+    long: 10
+  },
+  setAge(age: number): void {
+    this.age = age;
+  }
+}
+
+destructured: + with a object
+const { age }: { age: number } = profile;
+
+const {
+  obj: { lat, long },
+}: { obj: { lat: number; long: number } } = profile;
+
+
+
+arrays --- -
+
+can have nexted arrays
+let arraynested: array[][] = [array,array2,array3], [array4, array5]
+
+
+arrays can also have union types 
+const importantDates: Date[] | string[] = [new Date()];
+
+tuple ---------
+  Similar to array but each elements is related to one single thing, mix of types in the array
+  color,boolean,number.
+  i.e. a drink that has an array [Brown, true(carbonated or not), 40(grams of sugar)]
+
+Tuple usually has a strict order of what goes in, or else it's meaningless array
